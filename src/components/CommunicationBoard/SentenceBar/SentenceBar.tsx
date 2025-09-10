@@ -29,7 +29,12 @@ export function SentenceBar(props: SentenceBarProps) {
 
       <div className={classes.actions}>
         {hasWords && (
-          <IconButton aria-label="Clear" size="large" onClick={onClearClick}>
+          <IconButton
+            aria-label="Clear"
+            size="large"
+            color="inherit"
+            onClick={onClearClick}
+          >
             <ClearIcon />
           </IconButton>
         )}
@@ -37,6 +42,7 @@ export function SentenceBar(props: SentenceBarProps) {
         <IconButton
           aria-label="Backspace"
           size="large"
+          color="inherit"
           onClick={onBackspaceClick}
         >
           <BackspaceIcon />

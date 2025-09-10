@@ -16,11 +16,21 @@ export function NavigationBar({
 }: NavigationBarProps) {
   return (
     <div className={classes.root}>
-      <IconButton aria-label="Back" size="large" onClick={onBackClick}>
+      <IconButton
+        aria-label="Back"
+        size="large"
+        color="inherit"
+        onClick={onBackClick}
+      >
         <ArrowBackIcon />
       </IconButton>
 
-      <IconButton aria-label="Home" size="large" onClick={onHomeClick}>
+      <IconButton
+        aria-label="Home"
+        size="large"
+        color="inherit"
+        onClick={onHomeClick}
+      >
         <HomeIcon />
       </IconButton>
 
