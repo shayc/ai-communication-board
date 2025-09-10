@@ -1,12 +1,13 @@
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
-import classes from "./SentenceBar.module.css";
 import { Pictogram } from "../Pictogram/Pictogram";
+import classes from "./SentenceBar.module.css";
 
 interface Word {
   id: string;
   label: string;
+  image?: string;
 }
 
 export interface SentenceBarProps {
@@ -22,8 +23,8 @@ export function SentenceBar(props: SentenceBarProps) {
   return (
     <div className={classes.root}>
       <div className={classes.sentence}>
-        {words.map((word) => (
-          <Pictogram key={word.id} label={word.label} />
+        {words.map((word, index) => (
+          <Pictogram key={index} label={word.label} src={word.image} />
         ))}
       </div>
 
