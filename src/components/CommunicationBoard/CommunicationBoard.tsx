@@ -7,7 +7,7 @@ import { useNavigation } from "./NavigationBar/useNavigation";
 import { SentenceBar } from "./SentenceBar/SentenceBar";
 import { useSentence } from "./SentenceBar/useSentence";
 import { Tile } from "./Tile/Tile";
-import type { Button } from "./types";
+import type { BoardButton } from "./types";
 import { useCommunicationBoard } from "./useCommunicationBoard";
 
 export function CommunicationBoard() {
@@ -20,11 +20,9 @@ export function CommunicationBoard() {
   return (
     <div className={classes.root}>
       <SentenceBar
-        words={sentence.sentence}
-        onClearClick={() => sentence.clearSentence()}
-        onSpeakClick={() =>
-          speech.speak(sentence.sentence.map((word) => word.label).join(" "))
-        }
+        words={sentence.words}
+        onClearClick={() => sentence.clear()}
+        onBackspaceClick={() => sentence.removeLastWord()}
       />
 
       <NavigationBar
@@ -33,7 +31,7 @@ export function CommunicationBoard() {
         onHomeClick={() => navigation.goHome()}
       />
 
-      <Grid<Button>
+      <Grid<BoardButton>
         grid={grid.grid}
         renderCell={(button) => (
           <Tile
@@ -46,7 +44,7 @@ export function CommunicationBoard() {
                 return;
               }
 
-              sentence.addContent(button);
+              sentence.addWord(button);
               speech.speak(button.vocalization || button.label);
             }}
           />

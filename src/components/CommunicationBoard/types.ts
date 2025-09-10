@@ -4,7 +4,7 @@ export interface Grid {
   order?: (string | null)[][];
 }
 
-export interface Button {
+export interface BoardButton {
   id: string;
   label: string;
   vocalization?: string;
@@ -15,6 +15,6 @@ export interface Button {
 export interface Board {
   id: string;
   name: string;
-  buttons: Button[];
+  buttons: BoardButton[];
   grid: Grid;
 }

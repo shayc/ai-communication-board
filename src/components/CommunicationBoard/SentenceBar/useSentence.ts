@@ -8,19 +8,24 @@ interface SentenceContent {
 }
 
 export function useSentence() {
-  const [sentence, setSentence] = useState<SentenceContent[]>([]);
+  const [words, setWords] = useState<SentenceContent[]>([]);
 
-  const addContent = (content: SentenceContent) => {
-    setSentence((prev) => [...prev, content]);
+  const addWord = (content: SentenceContent) => {
+    setWords((prev) => [...prev, content]);
   };
 
-  const clearSentence = () => {
-    setSentence([]);
+  const clear = () => {
+    setWords([]);
+  };
+
+  const removeLastWord = () => {
+    setWords((prev) => prev.slice(0, -1));
   };
 
   return {
-    sentence,
-    addContent,
-    clearSentence,
+    words,
+    addWord,
+    clear,
+    removeLastWord,
   };
 }

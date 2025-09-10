@@ -1,4 +1,8 @@
+import BackspaceIcon from "@mui/icons-material/Backspace";
+import ClearIcon from "@mui/icons-material/Clear";
+import IconButton from "@mui/material/IconButton";
 import classes from "./SentenceBar.module.css";
+import { Pictogram } from "../Pictogram/Pictogram";
 
 interface Word {
   id: string;
@@ -8,27 +12,35 @@ interface Word {
 export interface SentenceBarProps {
   words: Word[];
   onClearClick: () => void;
-  onSpeakClick: () => void;
+  onBackspaceClick: () => void;
 }
 
 export function SentenceBar(props: SentenceBarProps) {
-  const { words, onClearClick, onSpeakClick } = props;
+  const { words, onClearClick, onBackspaceClick } = props;
   const hasWords = words.length > 0;
 
   return (
     <div className={classes.root}>
       <div className={classes.sentence}>
         {words.map((word) => (
-          <span key={word.id}>{word.label}</span>
+          <Pictogram key={word.id} label={word.label} />
         ))}
       </div>
 
       <div className={classes.actions}>
-        {hasWords && <button onClick={onClearClick}>Clear</button>}
+        {hasWords && (
+          <IconButton aria-label="Clear" size="large" onClick={onClearClick}>
+            <ClearIcon />
+          </IconButton>
+        )}
 
-        <button onClick={onSpeakClick} disabled={!hasWords}>
-          Speak
-        </button>
+        <IconButton
+          aria-label="Backspace"
+          size="large"
+          onClick={onBackspaceClick}
+        >
+          <BackspaceIcon />
+        </IconButton>
       </div>
     </div>
   );
