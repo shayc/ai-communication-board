@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.image {
+}
+
+.label {
+}
