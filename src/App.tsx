@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
+import { Settings } from "./components/Settings/Settings";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -32,7 +33,7 @@ export function App() {
       </AppBar>
 
       <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        boofydsuafjhdsk hjkdsahf
+        <Settings />
       </Drawer>
 
       <CommunicationBoard />

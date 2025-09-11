@@ -1,4 +1,4 @@
-import { useSpeech } from "../../hooks/useSpeech";
+import { useSpeechContext } from "../../providers/SpeechProvider/SpeechProvider";
 import classes from "./CommunicationBoard.module.css";
 import { Grid } from "./Grid/Grid";
 import { useGrid } from "./Grid/useGrid";
@@ -11,7 +11,7 @@ import type { BoardButton } from "./types";
 import { useCommunicationBoard } from "./useCommunicationBoard";
 
 export function CommunicationBoard() {
-  const speech = useSpeech();
+  const speech = useSpeechContext();
   const board = useCommunicationBoard();
   const navigation = useNavigation();
   const sentence = useSentence();
