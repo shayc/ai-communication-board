@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
-import { useSpeechSynthesis } from "../../providers/SpeechProvider/useSpeechSynthesis";
+import { useSpeech } from "../../providers/SpeechProvider/SpeechProvider";
 
 export function SpeechSettings() {
   const {
@@ -17,7 +17,16 @@ export function SpeechSettings() {
     setRate,
     volume,
     setVolume,
-  } = useSpeechSynthesis();
+    isSupported,
+  } = useSpeech();
+
+  if (!isSupported) {
+    return (
+      <Typography color="error">
+        Speech synthesis is not supported in this browser
+      </Typography>
+    );
+  }
 
   return (
     <div>
@@ -43,20 +52,20 @@ export function SpeechSettings() {
       <Slider
         aria-label="Pitch"
         value={pitch}
-        min={0}
-        max={1}
+        min={0.1}
+        max={2}
         step={0.1}
-        onChange={(_event, newValue) => setPitch(newValue)}
+        onChange={(_event, value) => setPitch(value)}
       />
 
       <Typography gutterBottom>Rate</Typography>
       <Slider
         aria-label="Rate"
         value={rate}
-        min={0}
-        max={1}
+        min={0.1}
+        max={2}
         step={0.1}
-        onChange={(_event, newValue) => setRate(newValue)}
+        onChange={(_event, value) => setRate(value)}
       />
 
       <Typography gutterBottom>Volume</Typography>
@@ -66,7 +75,7 @@ export function SpeechSettings() {
         min={0}
         max={1}
         step={0.1}
-        onChange={(_event, newValue) => setVolume(newValue)}
+        onChange={(_event, value) => setVolume(value)}
       />
     </div>
   );

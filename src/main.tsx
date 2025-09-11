@@ -6,9 +6,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
 import "./index.css";
+import { SpeechProvider } from "./providers/SpeechProvider/SpeechProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <SpeechProvider>
+      <App />
+    </SpeechProvider>
   </StrictMode>,
 );
