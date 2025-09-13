@@ -6,8 +6,6 @@ This project explores how on-device AI can make AAC more natural and multilingua
 
 🚀 **Live demo**: [aiboard.dev](https://aiboard.dev)
 
-⚠️ This is an experimental prototype. It is not a production-ready AAC system, but a demonstration of new possibilities for communication technology.
-
 ## Why Built-in AI?
 
 - **Speed**: Runs on-device for instant responses
@@ -18,7 +16,7 @@ This project explores how on-device AI can make AAC more natural and multilingua
 
 - Chrome Built-in AI APIs for translation, language detection, and grammar rewriting
 - SpeechSynthesis API for text-to-speech output
-- Support for [Open Board Format](https://www.openboardformat.org/examples) files for loading existing AAC boards
+- Support for [Open Board Format](https://www.openboardformat.org/examples) files
 - React + MUI for the interface
 - IndexedDB for offline storage of boards
 
