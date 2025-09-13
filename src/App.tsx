@@ -1,4 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
+import SettingsIcon from "@mui/icons-material/Settings";
 import AppBar from "@mui/material/AppBar";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -10,6 +11,7 @@ import { Settings } from "./components/Settings/Settings";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
     <>
@@ -29,10 +31,32 @@ export function App() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             AI Communication Board
           </Typography>
+
+          <IconButton
+            aria-label="Settings"
+            size="large"
+            edge="end"
+            color="inherit"
+            onClick={() => setIsSettingsOpen(true)}
+          >
+            <SettingsIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
 
-      <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+      <Drawer
+        anchor="left"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        Open file
+      </Drawer>
+
+      <Drawer
+        anchor="right"
+        open={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      >
         <Settings />
       </Drawer>
 
