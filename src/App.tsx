@@ -8,10 +8,13 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
 import { Settings } from "./components/Settings/Settings";
+import { useLanguageDetector } from "./hooks/useLanguageDetector";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [language, setLanguage] = useState<string | null>(null);
+  const { isSupported, progress, ensureReady, detect } = useLanguageDetector();
 
   return (
     <>
@@ -49,7 +52,20 @@ export function App() {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        Open file
+        <dl>
+          <dt>LanguageDetector API</dt>
+          <dd>{isSupported ? "Supported" : "Not supported"}</dd>
+        </dl>
+        <p>Model load progress: {progress}%</p>
+        <button onClick={() => ensureReady()}>Ensure ready</button>
+        <textarea
+          placeholder="Type or paste text here"
+          onChange={async (e) => {
+            const lang = await detect(e.target.value);
+            setLanguage(lang?.language || "");
+          }}
+        ></textarea>
+        <p>Detected language: {language}</p>
       </Drawer>
 
       <Drawer

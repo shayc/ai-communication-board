@@ -1,1 +1,1 @@
-export function useLanguageDetector() {}
+export function useTranslator() {}
