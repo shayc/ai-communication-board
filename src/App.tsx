@@ -7,7 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
-import { OpenFileButton } from "./components/OpenFileButton/OpenFileButton";
+import { FileImportButton } from "./components/FileImportButton/FileImportButton";
 import { Settings } from "./components/Settings/Settings";
 import { useLanguageDetector } from "./hooks/ai/useLanguageDetector";
 
@@ -54,7 +54,7 @@ export function App() {
         onClose={() => setIsDrawerOpen(false)}
       >
         <div>
-          <OpenFileButton />
+          <FileImportButton />
         </div>
         <dl>
           <dt>LanguageDetector API</dt>

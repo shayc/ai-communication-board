@@ -6,7 +6,7 @@ interface ImportFileButtonProps {
   accept?: string;
 }
 
-export function OpenFileButton({
+export function FileImportButton({
   accept = ".obf, .obz",
 }: ImportFileButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
