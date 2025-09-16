@@ -32,11 +32,11 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
 
 // eslint-disable-next-line
 export function useSpeech(): SpeechContextType {
-  const context = useContext(SpeechContext);
+  const speech = useContext(SpeechContext);
 
-  if (context === undefined) {
+  if (speech === undefined) {
     throw new Error("useSpeech must be used within a SpeechProvider");
   }
 
-  return context;
+  return speech;
 }
