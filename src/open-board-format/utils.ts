@@ -3,17 +3,17 @@ import { unzip } from "fflate";
 import mime from "mime/lite";
 import * as OBF from "./types";
 
-export interface OBZFiles {
+export interface OBZContent {
   manifest: OBF.Manifest;
   boards: Record<string, OBF.Board>;
   images: Record<string, Blob>;
   sounds: Record<string, Blob>;
 }
 
-export async function unzipOBZ(obz: Uint8Array): Promise<OBZFiles> {
+export async function unzipOBZ(obz: Uint8Array): Promise<OBZContent> {
   const unzippedOBZ = await unzipAsync(obz);
 
-  const files: OBZFiles = {
+  const content: OBZContent = {
     manifest: {} as OBF.Manifest,
     boards: {},
     images: {},
@@ -23,17 +23,17 @@ export async function unzipOBZ(obz: Uint8Array): Promise<OBZFiles> {
   for (const [path, data] of Object.entries(unzippedOBZ)) {
     try {
       if (path === "manifest.json") {
-        files.manifest = parseJson(data);
+        content.manifest = parseJson(data);
       } else if (path.endsWith(".obf")) {
-        files.boards[path] = parseJson(data);
+        content.boards[path] = parseJson(data);
       } else {
         const type = mime.getType(path) ?? "";
         const blob = new Blob([data as BlobPart], { type });
 
         if (type.startsWith("image/")) {
-          files.images[path] = blob;
+          content.images[path] = blob;
         } else if (type.startsWith("audio/")) {
-          files.sounds[path] = blob;
+          content.sounds[path] = blob;
         }
       }
     } catch (parseError) {
@@ -41,7 +41,7 @@ export async function unzipOBZ(obz: Uint8Array): Promise<OBZFiles> {
     }
   }
 
-  return files;
+  return content;
 }
 
 function unzipAsync(data: Uint8Array): Promise<Unzipped> {

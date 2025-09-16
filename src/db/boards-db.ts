@@ -1,7 +1,7 @@
 import type { DBSchema, IDBPDatabase } from "idb";
 import { openDB } from "idb";
 import * as OBF from "../open-board-format/types";
-import type { OBZFiles } from "../open-board-format/utils";
+import type { OBZContent } from "../open-board-format/utils";
 import { unzipOBZ } from "../open-board-format/utils";
 
 interface BoardsDB extends DBSchema {
@@ -42,13 +42,13 @@ const db = await initDB();
 export async function importOBZFile(file: File): Promise<void> {
   const buffer = await file.arrayBuffer();
   const obz = new Uint8Array(buffer);
-  const obzFiles = await unzipOBZ(obz);
+  const content = await unzipOBZ(obz);
 
-  await storeOBZFiles(obzFiles);
+  await storeOBZContent(content);
 }
 
-export async function storeOBZFiles(obzFiles: OBZFiles): Promise<void> {
-  const { manifest, boards, images, sounds } = obzFiles;
+export async function storeOBZContent(content: OBZContent): Promise<void> {
+  const { manifest, boards, images, sounds } = content;
 
   const tx = db.transaction(
     ["manifest", "boards", "images", "sounds"],
