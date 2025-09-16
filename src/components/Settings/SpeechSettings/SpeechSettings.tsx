@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
-import { useSpeech } from "../../providers/SpeechProvider/SpeechProvider";
+import { useSpeech } from "../../../providers/SpeechProvider/SpeechProvider";
 
 export function SpeechSettings() {
   const {

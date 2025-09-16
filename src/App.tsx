@@ -9,7 +9,7 @@ import { useState } from "react";
 import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
 import { OpenFileButton } from "./components/OpenFileButton/OpenFileButton";
 import { Settings } from "./components/Settings/Settings";
-import { useLanguageDetector } from "./hooks/useLanguageDetector";
+import { useLanguageDetector } from "./hooks/ai/useLanguageDetector";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

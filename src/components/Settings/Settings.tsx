@@ -1,5 +1,5 @@
-import { LanguageSettings } from "./LanguageSettings";
-import { SpeechSettings } from "./SpeechSettings";
+import { LanguageSettings } from "./LanguageSettings/LanguageSettings";
+import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 
 export function Settings() {
   return (
