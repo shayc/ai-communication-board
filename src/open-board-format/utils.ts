@@ -1,7 +1,7 @@
 import type { Unzipped } from "fflate";
 import { unzip } from "fflate";
 import mime from "mime/lite";
-import type { Manifest, Board}from "./schema";
+import type { Board, Manifest } from "./schema";
 
 export interface OBZContent {
   manifest: Manifest;
