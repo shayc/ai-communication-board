@@ -1,11 +1,11 @@
 import type { Unzipped } from "fflate";
 import { unzip } from "fflate";
 import mime from "mime/lite";
-import * as OBF from "./types";
+import type { Manifest, Board}from "./schema";
 
 export interface OBZContent {
-  manifest: OBF.Manifest;
-  boards: Record<string, OBF.Board>;
+  manifest: Manifest;
+  boards: Record<string, Board>;
   images: Record<string, Blob>;
   sounds: Record<string, Blob>;
 }
@@ -14,7 +14,7 @@ export async function unzipOBZ(obz: Uint8Array): Promise<OBZContent> {
   const unzippedOBZ = await unzipAsync(obz);
 
   const content: OBZContent = {
-    manifest: {} as OBF.Manifest,
+    manifest: {} as Manifest,
     boards: {},
     images: {},
     sounds: {},

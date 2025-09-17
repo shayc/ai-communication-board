@@ -1,18 +1,18 @@
 import type { DBSchema, IDBPDatabase } from "idb";
 import { openDB } from "idb";
-import * as OBF from "../open-board-format/types";
+import type { Board, Manifest } from "../open-board-format/schema";
 import type { OBZContent } from "../open-board-format/utils";
 import { unzipOBZ } from "../open-board-format/utils";
 
 interface BoardsDB extends DBSchema {
   manifest: {
-    value: OBF.Manifest;
+    value: Manifest;
     key: string;
   };
   boards: {
     value: {
       path: string;
-      data: OBF.Board;
+      data: Board;
     };
     key: string;
     indexes: { "by-path": string };
@@ -91,7 +91,7 @@ export async function storeOBZContent(content: OBZContent): Promise<void> {
   }
 }
 
-export async function getRootBoard(): Promise<OBF.Board | null> {
+export async function getRootBoard(): Promise<Board | null> {
   const tx = db.transaction(["manifest"]);
   const manifestStore = tx.objectStore("manifest");
   const manifest = await manifestStore.get("manifest");
@@ -103,7 +103,7 @@ export async function getRootBoard(): Promise<OBF.Board | null> {
   return null;
 }
 
-export async function getBoardByPath(path: string): Promise<OBF.Board | null> {
+export async function getBoardByPath(path: string): Promise<Board | null> {
   const tx = db.transaction(["boards"]);
   const boardsStore = tx.objectStore("boards");
   const board = await boardsStore.index("by-path").get(path);
