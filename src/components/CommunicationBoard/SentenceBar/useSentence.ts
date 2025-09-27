@@ -14,18 +14,18 @@ export function useSentence() {
     setWords((prev) => [...prev, content]);
   };
 
-  const clear = () => {
-    setWords([]);
-  };
-
   const removeLastWord = () => {
     setWords((prev) => prev.slice(0, -1));
+  };
+
+  const clear = () => {
+    setWords([]);
   };
 
   return {
     words,
     addWord,
-    clear,
     removeLastWord,
+    clear,
   };
 }
