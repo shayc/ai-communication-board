@@ -13,8 +13,8 @@
 import { z } from "zod";
 
 /** Unique identifier as a string. */
-export const UUIDSchema = z.string();
-export type UUID = z.infer<typeof UUIDSchema>;
+export const IDSchema = z.union([z.string(), z.number()]).transform(String);
+export type ID = z.infer<typeof IDSchema>;
 
 /**
  * Format version of the Open Board Format, e.g., 'open-board-0.1'.
@@ -110,7 +110,7 @@ export type License = z.infer<typeof LicenseSchema>;
 export const MediaSchema = z
   .object({
     /** Unique identifier for the media resource. */
-    id: UUIDSchema,
+    id: IDSchema,
     /** Data URI containing the media data. */
     data: z.string().optional(),
     /** Path to the media file within an .obz package. */
@@ -169,7 +169,7 @@ export type Sound = z.infer<typeof SoundSchema>;
 export const LoadBoardSchema = z
   .object({
     /** Unique identifier of the board to load. */
-    id: UUIDSchema.optional(),
+    id: IDSchema.optional(),
     /** Name of the board to load. */
     name: z.string().optional(),
     /** Data URL to fetch the board programmatically. */
@@ -188,15 +188,15 @@ export type LoadBoard = z.infer<typeof LoadBoardSchema>;
 export const ButtonSchema = z
   .object({
     /** Unique identifier for the button. */
-    id: UUIDSchema,
+    id: IDSchema,
     /** Label text displayed on the button. */
     label: z.string().optional(),
     /** Alternative text for vocalization when the button is activated. */
     vocalization: z.string().optional(),
     /** Identifier of the image associated with the button. */
-    image_id: UUIDSchema.optional(),
+    image_id: IDSchema.optional(),
     /** Identifier of the sound associated with the button. */
-    sound_id: UUIDSchema.optional(),
+    sound_id: IDSchema.optional(),
     /** Action associated with the button. */
     action: ButtonActionSchema.optional(),
     /** List of multiple actions for the button, executed in order. */
@@ -231,7 +231,7 @@ export const GridSchema = z.object({
    * 2D array representing the order of buttons by their IDs.
    * Each sub-array corresponds to a row, and each element is a button ID or null for empty slots.
    */
-  order: z.array(z.array(z.union([UUIDSchema, z.null()]))),
+  order: z.array(z.array(z.union([IDSchema, z.null()]))),
 });
 export type Grid = z.infer<typeof GridSchema>;
 
@@ -243,7 +243,7 @@ export const BoardSchema = z
     /** Format version of the Open Board Format, e.g., 'open-board-0.1'. */
     format: FormatVersionSchema,
     /** Unique identifier for the board. */
-    id: UUIDSchema,
+    id: IDSchema,
     /** Locale of the board as a BCP 47 language tag, e.g., 'en', 'en-US'. */
     locale: LocaleCodeSchema,
     /** List of buttons on the board. */
@@ -279,11 +279,11 @@ export const ManifestSchema = z.object({
   /** Mapping of IDs to paths for boards, images, and sounds. */
   paths: z.object({
     /** Mapping of board IDs to their file paths. */
-    boards: z.record(UUIDSchema, z.string()),
+    boards: z.record(IDSchema, z.string()),
     /** Mapping of image IDs to their file paths. */
-    images: z.record(UUIDSchema, z.string()),
+    images: z.record(IDSchema, z.string()),
     /** Mapping of sound IDs to their file paths. */
-    sounds: z.record(UUIDSchema, z.string()),
+    sounds: z.record(IDSchema, z.string()),
   }),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;
