@@ -13,7 +13,7 @@
 import { z } from "zod";
 
 /** Unique identifier as a string. */
-export const IDSchema = z.union([z.string(), z.number()]).transform(String);
+export const IDSchema = z.string();
 export type ID = z.infer<typeof IDSchema>;
 
 /**
@@ -86,15 +86,15 @@ export const LicenseSchema = z
     /** Type of the license, e.g., 'CC-BY-SA'. */
     type: z.string(),
     /** URL to the license terms. */
-    copyright_notice_url: z.string().url().optional(),
+    copyright_notice_url: z.url().optional(),
     /** Source URL of the resource. */
-    source_url: z.string().url().optional(),
+    source_url: z.url().optional(),
     /** Name of the author. */
     author_name: z.string().optional(),
     /** URL of the author's webpage. */
-    author_url: z.string().url().optional(),
+    author_url: z.url().optional(),
     /** Email address of the author. */
-    author_email: z.string().email().optional(),
+    author_email: z.email().optional(),
   })
   .and(ExtensionsSchema);
 export type License = z.infer<typeof LicenseSchema>;
@@ -115,8 +115,10 @@ export const MediaSchema = z
     data: z.string().optional(),
     /** Path to the media file within an .obz package. */
     path: z.string().optional(),
+    /** Data URL to fetch the media programmatically. */
+    data_url: z.url().optional(),
     /** URL to the media resource. */
-    url: z.string().url().optional(),
+    url: z.url().optional(),
     /** MIME type of the media, e.g., 'image/png', 'audio/mpeg'. */
     content_type: z.string().optional(),
     /** Licensing information for the media. */
@@ -173,9 +175,9 @@ export const LoadBoardSchema = z
     /** Name of the board to load. */
     name: z.string().optional(),
     /** Data URL to fetch the board programmatically. */
-    data_url: z.string().url().optional(),
+    data_url: z.url().optional(),
     /** URL to access the board via a web browser. */
-    url: z.string().url().optional(),
+    url: z.url().optional(),
     /** Path to the board within an .obz package. */
     path: z.string().optional(),
   })
@@ -224,9 +226,9 @@ export type Button = z.infer<typeof ButtonSchema>;
  */
 export const GridSchema = z.object({
   /** Number of rows in the grid. */
-  rows: z.number().int().nonnegative(),
+  rows: z.number().int().min(1),
   /** Number of columns in the grid. */
-  columns: z.number().int().nonnegative(),
+  columns: z.number().int().min(1),
   /**
    * 2D array representing the order of buttons by their IDs.
    * Each sub-array corresponds to a row, and each element is a button ID or null for empty slots.
@@ -249,13 +251,13 @@ export const BoardSchema = z
     /** List of buttons on the board. */
     buttons: z.array(ButtonSchema),
     /** URL where the board can be accessed or downloaded. */
-    url: z.string().url().optional(),
+    url: z.url().optional(),
     /** Name of the board. */
     name: z.string().optional(),
     /** Description of the board in HTML format. */
     description_html: z.string().optional(),
     /** Grid layout information for arranging buttons. */
-    grid: GridSchema.optional(),
+    grid: GridSchema,
     /** List of images used in the board. */
     images: z.array(ImageSchema).optional(),
     /** List of sounds used in the board. */
