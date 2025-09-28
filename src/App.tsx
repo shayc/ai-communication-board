@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppDrawer } from "./components/AppDrawer/AppDrawer";
-import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
 import { SettingsDrawer } from "./components/SettingsDrawer/SettingsDrawer";
+import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
