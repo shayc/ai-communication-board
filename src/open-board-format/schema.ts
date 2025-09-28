@@ -247,7 +247,7 @@ export const BoardSchema = z
     /** Unique identifier for the board. */
     id: IDSchema,
     /** Locale of the board as a BCP 47 language tag, e.g., 'en', 'en-US'. */
-    locale: LocaleCodeSchema,
+    locale: LocaleCodeSchema.optional(),
     /** List of buttons on the board. */
     buttons: z.array(ButtonSchema),
     /** URL where the board can be accessed or downloaded. */
