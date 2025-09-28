@@ -6,6 +6,7 @@ import { NavigationBar } from "./NavigationBar/NavigationBar";
 import { useNavigation } from "./NavigationBar/useNavigation";
 import { SentenceBar } from "./SentenceBar/SentenceBar";
 import { useSentence } from "./SentenceBar/useSentence";
+import { SuggestionBar } from "./SuggestionBar/SuggestionBar";
 import { Tile } from "./Tile/Tile";
 import type { BoardButton } from "./types";
 import { useCommunicationBoard } from "./useCommunicationBoard";
@@ -24,6 +25,8 @@ export function CommunicationBoard() {
         onClearClick={() => sentence.clear()}
         onBackspaceClick={() => sentence.removeLastWord()}
       />
+
+      <SuggestionBar />
 
       <NavigationBar
         title={board.name}
