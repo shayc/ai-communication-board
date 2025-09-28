@@ -1,5 +1,5 @@
+import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-
 
 interface AppDrawerProps {
   open: boolean;
@@ -9,7 +9,7 @@ interface AppDrawerProps {
 export function AppDrawer({ open, onClose }: AppDrawerProps) {
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
-      App Drawer
+      <Box sx={{ width: 360 }}>App Drawer</Box>
     </Drawer>
   );
 }
