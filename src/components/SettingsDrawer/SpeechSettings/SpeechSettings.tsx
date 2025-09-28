@@ -19,15 +19,8 @@ export function SpeechSettings() {
     volume,
     setVolume,
     isSupported,
+    speak,
   } = useSpeech();
-
-  if (!isSupported) {
-    return (
-      <Typography color="error">
-        Speech synthesis is not supported in this browser
-      </Typography>
-    );
-  }
 
   return (
     <div>
@@ -35,6 +28,7 @@ export function SpeechSettings() {
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Voice</InputLabel>
         <Select
+          disabled={!isSupported}
           label="Voice"
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -51,6 +45,7 @@ export function SpeechSettings() {
 
       <Typography gutterBottom>Pitch</Typography>
       <Slider
+        disabled={!isSupported}
         aria-label="Pitch"
         value={pitch}
         min={0.1}
@@ -61,6 +56,7 @@ export function SpeechSettings() {
 
       <Typography gutterBottom>Rate</Typography>
       <Slider
+        disabled={!isSupported}
         aria-label="Rate"
         value={rate}
         min={0.1}
@@ -71,6 +67,7 @@ export function SpeechSettings() {
 
       <Typography gutterBottom>Volume</Typography>
       <Slider
+        disabled={!isSupported}
         aria-label="Volume"
         value={volume}
         min={0}
@@ -79,7 +76,12 @@ export function SpeechSettings() {
         onChange={(_event, value) => setVolume(value)}
       />
 
-      <Button variant="contained" color="primary">
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={!isSupported}
+        onClick={() => speak("Hi, this is my voice!")}
+      >
         Preview
       </Button>
     </div>
