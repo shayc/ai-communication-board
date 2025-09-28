@@ -1,3 +1,5 @@
 export function useProofreader() {
-  return { isSupported: true };
+  const isSupported = "Proofreader" in self;
+
+  return { isSupported };
 }

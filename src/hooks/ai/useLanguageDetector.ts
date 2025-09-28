@@ -1,3 +1,4 @@
 export function useLanguageDetector() {
-  return { isSupported: true };
+  const isSupported = "LanguageDetector" in self;
+  return { isSupported };
 }

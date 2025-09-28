@@ -1,3 +1,5 @@
 export function useTranslator() {
-  return { isSupported: true };
+  const isSupported = "Translator" in self;
+  
+  return { isSupported };
 }

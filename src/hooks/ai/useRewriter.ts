@@ -1,3 +1,5 @@
 export function useRewriter() {
-  return { isSupported: true };
+  const isSupported = "Rewriter" in self;
+
+  return { isSupported };
 }
