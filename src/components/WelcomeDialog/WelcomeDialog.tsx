@@ -8,13 +8,13 @@ export function WelcomeDialog() {
         Welcome to AI Communication Board
       </Typography>
 
-      <Typography variant="body1" gutterBottom>
-        A new way to turn symbols into speech, powered by built-in AI.
+      <Typography variant="h6" gutterBottom>
+        Turn symbols into speech, naturally with built-in AI.
       </Typography>
 
       <ul>
         <li>Smart suggestions as you build messages</li>
-        <li>Speak and translate instantly</li>
+        <li>Translate and speak instantly</li>
         <li>
           Works offline, private by design<sup>1</sup>
         </li>
