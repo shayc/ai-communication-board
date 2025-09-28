@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -77,6 +78,10 @@ export function SpeechSettings() {
         step={0.1}
         onChange={(_event, value) => setVolume(value)}
       />
+
+      <Button variant="contained" color="primary">
+        Preview
+      </Button>
     </div>
   );
 }
