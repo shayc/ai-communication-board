@@ -1,1 +1,3 @@
-export function useProofreader() {}
+export function useProofreader() {
+  return { isSupported: true };
+}

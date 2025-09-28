@@ -1,1 +1,3 @@
-export function useLanguageDetector() {}
+export function useLanguageDetector() {
+  return { isSupported: true };
+}

@@ -1,1 +1,3 @@
-export function useRewriter() {}
+export function useRewriter() {
+  return { isSupported: true };
+}

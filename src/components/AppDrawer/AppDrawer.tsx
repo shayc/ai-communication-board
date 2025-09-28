@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
+import { BrowserAISupport } from "./BrowserAISupport/BrowserAISupport";
 
 interface AppDrawerProps {
   open: boolean;
@@ -9,7 +10,10 @@ interface AppDrawerProps {
 export function AppDrawer({ open, onClose }: AppDrawerProps) {
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
-      <Box sx={{ width: 360 }}>App Drawer</Box>
+      <Box sx={{ width: 360 }}>
+        App Drawer
+        <BrowserAISupport />
+      </Box>
     </Drawer>
   );
 }

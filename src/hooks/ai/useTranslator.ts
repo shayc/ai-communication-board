@@ -1,1 +1,3 @@
-export function useTranslator() {}
+export function useTranslator() {
+  return { isSupported: true };
+}
