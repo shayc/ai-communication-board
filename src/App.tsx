@@ -8,6 +8,7 @@ import { WelcomeDialog } from "./components/WelcomeDialog/WelcomeDialog";
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isWelcomeDialogOpen, setIsWelcomeDialogOpen] = useState(true);
 
   return (
     <>
@@ -25,7 +26,10 @@ export function App() {
 
       <CommunicationBoard />
 
-      <WelcomeDialog />
+      <WelcomeDialog
+        open={isWelcomeDialogOpen}
+        onClose={() => setIsWelcomeDialogOpen(false)}
+      />
     </>
   );
 }
