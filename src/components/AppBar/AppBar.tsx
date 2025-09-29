@@ -1,4 +1,3 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { default as MUIAppBar } from "@mui/material/AppBar";
@@ -43,15 +42,6 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
           </Select>
         </FormControl>
         <Typography component="div" sx={{ flexGrow: 1 }}></Typography>
-
-        <IconButton
-          aria-label="GitHub"
-          size="large"
-          color="inherit"
-          href="https://github.com/shayc/ai-communication-board"
-        >
-          <GitHubIcon />
-        </IconButton>
 
         <IconButton
           aria-label="Settings"
