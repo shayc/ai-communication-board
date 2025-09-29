@@ -1,39 +1,3 @@
-:root {
-  color-scheme: light dark;
-  --color: rgba(255, 255, 255, 0.87);
-  --background-color: #242424;
-
-  --space-small: 8px;
-  --space-medium: 16px;
-  --space-large: 24px;
-
-  --gap: var(--space-medium);
-  --padding: var(--space-medium);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color: #213547;
-    --background-color: #fff;
-  }
-}
-
-body {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
-
-  color: var(--color);
-  background-color: var(--background-color);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 #root {
   height: 100vh;
   display: flex;

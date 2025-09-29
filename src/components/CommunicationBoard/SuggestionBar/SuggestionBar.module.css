@@ -1,4 +1,7 @@
 .root {
+  --gap: 8px;
+  --padding: 8px;
+
   height: 56px;
   display: flex;
   align-items: center;

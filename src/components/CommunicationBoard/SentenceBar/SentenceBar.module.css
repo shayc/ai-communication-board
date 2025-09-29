@@ -1,4 +1,7 @@
 .root {
+  --gap: 8px;
+  --padding: 8px;
+
   flex-shrink: 0;
   height: 112px;
   display: flex;

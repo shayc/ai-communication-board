@@ -17,7 +17,7 @@ export function LanguageSettings() {
   return (
     <div>
       <Typography gutterBottom>Language</Typography>
-      <FormControl fullWidth>
+      <FormControl size="small" fullWidth>
         <InputLabel id="demo-simple-select-label">Language</InputLabel>
         <Select
           label="Language"

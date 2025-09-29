@@ -25,7 +25,7 @@ export function SpeechSettings() {
   return (
     <div>
       <Typography gutterBottom>Voice</Typography>
-      <FormControl fullWidth>
+      <FormControl size="small" fullWidth>
         <InputLabel id="demo-simple-select-label">Voice</InputLabel>
         <Select
           disabled={!isSupported}

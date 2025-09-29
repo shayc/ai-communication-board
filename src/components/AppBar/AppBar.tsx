@@ -30,6 +30,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
 
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <Select
+            sx={{ color: "inherit" }}
             value={"AI Communication Board"}
             onChange={() => {}}
             displayEmpty
@@ -41,11 +42,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
             <MenuItem value={"Core 60"}>Core 60</MenuItem>
           </Select>
         </FormControl>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{ flexGrow: 1 }}
-        ></Typography>
+        <Typography component="div" sx={{ flexGrow: 1 }}></Typography>
 
         <IconButton
           aria-label="GitHub"
