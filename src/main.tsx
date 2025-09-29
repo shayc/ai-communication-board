@@ -11,8 +11,8 @@ import "./index.css";
 import { SpeechProvider } from "./providers/SpeechProvider/SpeechProvider.tsx";
 
 const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
+  colorSchemes: {
+    dark: true,
   },
 });
 
