@@ -30,6 +30,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <Select
             sx={{ color: "inherit" }}
+            size="small"
             value={"AI Communication Board"}
             onChange={() => {}}
             displayEmpty
