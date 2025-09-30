@@ -26,6 +26,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
         >
           <MenuIcon />
         </IconButton>
+
         <IconButton
           disabled
           aria-label="Back"
@@ -35,6 +36,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
         >
           <ArrowBackIcon />
         </IconButton>
+
         <IconButton
           disabled
           aria-label="Forward"
@@ -45,6 +47,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
         >
           <ArrowBackIcon style={{ transform: "rotate(180deg)" }} />
         </IconButton>
+
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <Select
             sx={{ color: "inherit" }}
@@ -54,7 +57,7 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
             displayEmpty
           >
             <MenuItem value={"AI Communication Board"}>
-              AI Communication Board
+              Project Core 36
             </MenuItem>
             <MenuItem value={"Core 24"}>Core 24</MenuItem>
             <MenuItem value={"Core 60"}>Core 60</MenuItem>
