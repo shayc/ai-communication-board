@@ -1,3 +1,4 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { default as MUIAppBar } from "@mui/material/AppBar";
@@ -21,12 +22,29 @@ export function AppBar({ setIsDrawerOpen, setIsSettingsOpen }: AppBarProps) {
           size="large"
           edge="start"
           color="inherit"
-          sx={{ mr: 2 }}
           onClick={() => setIsDrawerOpen(true)}
         >
           <MenuIcon />
         </IconButton>
-
+        <IconButton
+          disabled
+          aria-label="Back"
+          size="large"
+          color="inherit"
+          onClick={() => {}}
+        >
+          <ArrowBackIcon />
+        </IconButton>
+        <IconButton
+          disabled
+          aria-label="Forward"
+          size="large"
+          color="inherit"
+          sx={{ mr: 2 }}
+          onClick={() => {}}
+        >
+          <ArrowBackIcon style={{ transform: "rotate(180deg)" }} />
+        </IconButton>
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <Select
             sx={{ color: "inherit" }}
