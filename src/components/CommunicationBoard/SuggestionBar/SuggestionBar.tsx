@@ -16,16 +16,6 @@ export function SuggestionBar() {
         label="I'm hungry, I'd like a salad"
         onClick={() => alert("I'm hungry, I'd like a salad")}
       />
-
-      <Box sx={{ ml: "auto" }}>
-        <IconButton color="primary" aria-label="Satisfied tone">
-          <SentimentSatisfiedAltIcon />
-        </IconButton>
-
-        <IconButton color="primary" aria-label="Dissatisfied tone">
-          <SentimentVeryDissatisfiedIcon />
-        </IconButton>
-      </Box>
     </div>
   );
 }
