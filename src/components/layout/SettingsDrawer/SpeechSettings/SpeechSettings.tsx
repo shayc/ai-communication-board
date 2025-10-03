@@ -1,3 +1,4 @@
+import { useSpeech } from "@/providers/SpeechProvider/SpeechProvider";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import Button from "@mui/material/Button";
@@ -8,7 +9,6 @@ import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useSpeech } from "../../../../providers/SpeechProvider/SpeechProvider";
 
 export function SpeechSettings() {
   const {

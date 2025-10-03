@@ -1,7 +1,7 @@
-import { useLanguageDetector } from "../../../hooks/ai/useLanguageDetector";
-import { useProofreader } from "../../../hooks/ai/useProofreader";
-import { useRewriter } from "../../../hooks/ai/useRewriter";
-import { useTranslator } from "../../../hooks/ai/useTranslator";
+import { useLanguageDetector } from "@/hooks/ai/useLanguageDetector";
+import { useProofreader } from "@/hooks/ai/useProofreader";
+import { useRewriter } from "@/hooks/ai/useRewriter";
+import { useTranslator } from "@/hooks/ai/useTranslator";
 
 export function AISupport() {
   const languageDetector = useLanguageDetector();
