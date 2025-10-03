@@ -1,13 +1,13 @@
 import { useSpeech } from "../../../providers/SpeechProvider/SpeechProvider";
 import classes from "./CommunicationBoard.module.css";
 import { Grid } from "./Grid/Grid";
-import { useGrid } from "./Grid/useGrid";
+import { useCommunicationBoard } from "./hooks/useCommunicationBoard";
+import { useGrid } from "./hooks/useGrid";
+import { useSentence } from "./hooks/useSentence";
 import { SentenceBar } from "./SentenceBar/SentenceBar";
-import { useSentence } from "./SentenceBar/useSentence";
 import { SuggestionBar } from "./SuggestionBar/SuggestionBar";
 import { Tile } from "./Tile/Tile";
 import type { BoardButton } from "./types";
-import { useCommunicationBoard } from "./useCommunicationBoard";
 
 export function CommunicationBoard() {
   const speech = useSpeech();
