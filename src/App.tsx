@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { AppBar } from "./components/AppBar/AppBar";
-import { AppDrawer } from "./components/AppDrawer/AppDrawer";
-import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
-import { SettingsDrawer } from "./components/SettingsDrawer/SettingsDrawer";
-import { WelcomeDialog } from "./components/WelcomeDialog/WelcomeDialog";
+import { CommunicationBoard } from "./components/board/CommunicationBoard/CommunicationBoard";
+import { AppBar } from "./components/layout/AppBar/AppBar";
+import { NavigationDrawer } from "./components/layout/NavigationDrawer/NavigationDrawer";
+import { SettingsDrawer } from "./components/layout/SettingsDrawer/SettingsDrawer";
+import { WelcomeDialog } from "./components/layout/WelcomeDialog/WelcomeDialog";
 
 export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -17,7 +17,10 @@ export function App() {
         setIsSettingsOpen={setIsSettingsOpen}
       />
 
-      <AppDrawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      <NavigationDrawer
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
 
       <SettingsDrawer
         open={isSettingsOpen}
