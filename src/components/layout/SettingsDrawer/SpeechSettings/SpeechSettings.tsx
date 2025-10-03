@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useSpeech } from "../../../providers/SpeechProvider/SpeechProvider";
+import { useSpeech } from "../../../../providers/SpeechProvider/SpeechProvider";
 
 export function SpeechSettings() {
   const {
