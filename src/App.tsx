@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CommunicationBoard } from "./components/board/CommunicationBoard/CommunicationBoard";
+import { CommunicationBoard } from "./components/CommunicationBoard/CommunicationBoard";
 import { AppBar } from "./components/layout/AppBar/AppBar";
 import { NavigationDrawer } from "./components/layout/NavigationDrawer/NavigationDrawer";
 import { SettingsDrawer } from "./components/layout/SettingsDrawer/SettingsDrawer";

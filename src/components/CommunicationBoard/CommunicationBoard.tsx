@@ -1,4 +1,4 @@
-import { useSpeech } from "../../../providers/SpeechProvider/SpeechProvider";
+import { useSpeech } from "../../providers/SpeechProvider/SpeechProvider";
 import classes from "./CommunicationBoard.module.css";
 import { Grid } from "./Grid/Grid";
 import { useCommunicationBoard } from "./hooks/useCommunicationBoard";
