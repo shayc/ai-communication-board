@@ -3,7 +3,7 @@ import { useProofreader } from "../../../hooks/ai/useProofreader";
 import { useRewriter } from "../../../hooks/ai/useRewriter";
 import { useTranslator } from "../../../hooks/ai/useTranslator";
 
-export function BrowserAISupport() {
+export function AISupport() {
   const languageDetector = useLanguageDetector();
   const proofreader = useProofreader();
   const rewriter = useRewriter();
@@ -11,7 +11,7 @@ export function BrowserAISupport() {
 
   return (
     <div>
-      <div>BrowserAI Support</div>
+      <div>Built-in AI Support</div>
       Language Detector API:
       {languageDetector.isSupported ? "Supported" : "Not Supported"}
       Proofreader API: {proofreader.isSupported ? "Supported" : "Not Supported"}
