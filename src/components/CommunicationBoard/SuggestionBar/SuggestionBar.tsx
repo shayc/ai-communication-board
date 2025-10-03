@@ -1,9 +1,7 @@
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import Chip from "@mui/material/Chip";
-import IconButton from "@mui/material/IconButton";
-import classes from "./SuggestionBar.module.css";
+import { ToneSelect } from "@/components/common/ToneSelect/ToneSelect";
 import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
+import classes from "./SuggestionBar.module.css";
 
 export function SuggestionBar() {
   return (
@@ -16,6 +14,10 @@ export function SuggestionBar() {
         label="I'm hungry, I'd like a salad"
         onClick={() => alert("I'm hungry, I'd like a salad")}
       />
+
+      <Box sx={{ marginInlineStart: "auto" }}>
+        <ToneSelect />
+      </Box>
     </div>
   );
 }

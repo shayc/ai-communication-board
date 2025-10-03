@@ -1,5 +1,6 @@
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import ClearIcon from "@mui/icons-material/Clear";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import IconButton from "@mui/material/IconButton";
 import { Pictogram } from "../Pictogram/Pictogram";
 import classes from "./SentenceBar.module.css";
@@ -13,11 +14,11 @@ interface Word {
 export interface SentenceBarProps {
   words: Word[];
   onClearClick: () => void;
-  onBackspaceClick: () => void;
+  onPlayClick: () => void;
 }
 
 export function SentenceBar(props: SentenceBarProps) {
-  const { words, onClearClick, onBackspaceClick } = props;
+  const { words, onClearClick, onPlayClick } = props;
   const hasWords = words.length > 0;
 
   return (
@@ -39,16 +40,16 @@ export function SentenceBar(props: SentenceBarProps) {
             <ClearIcon />
           </IconButton>
         )}
-
-        <IconButton
-          aria-label="Backspace"
-          size="large"
-          color="inherit"
-          onClick={onBackspaceClick}
-        >
-          <BackspaceIcon />
-        </IconButton>
       </div>
+
+      <IconButton
+        aria-label="Play"
+        size="large"
+        color="inherit"
+        onClick={onPlayClick}
+      >
+        <PlayArrowIcon />
+      </IconButton>
     </div>
   );
 }
